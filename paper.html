@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Avery Nortonsmith">
+        <meta name="description" content="barebones in-browser text editor">
+        <title>untitled</title>
+
+        <style type="text/css">
+            body, html {
+              height: 100%;
+              width: 100%;
+              margin: 0px;
+              padding: 20px 0px;
+              min-width: 600px;
+              box-sizing: border-box;
+              position: absolute;
+              top: 0px;
+            }
+
+            .text {
+              width: 600px;
+              border: 1px solid #ddd;
+              border-radius: 2px;
+              display: block;
+              margin: auto;
+              font-family: Dejavu Sans Mono;
+              font-size: 12px;
+              outline: none;
+              box-sizing: border-box;
+            }
+
+            #titleInput {
+              padding: 4px 20px;
+              height: 24px;
+            }    
+
+            #editor {
+              resize: none;
+              margin: 10px auto 20px auto;
+              min-height: calc(100% - 40px);
+              padding: 20px 20px 5px 20px;
+            }      
+        </style>
+    </head>
+
+    <body>
+        <input id="titleInput" class="text" value="untitled" type="text" autofocus/>
+        <textarea id="editor" class="text"></textarea>
+
+        <script type="text/javascript">
+            const titleInput = document.getElementById('titleInput');
+            titleInput.addEventListener("input", function (e) {
+                title = titleInput.value;
+                document.title = title != "" ? title : "untitled";
+            });
+        </script>
+    </body>
+</html>
+
+<!-- 
+MIT License
+Copyright (c) 2018 Avery N. Nortonsmith
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. 
+-->
