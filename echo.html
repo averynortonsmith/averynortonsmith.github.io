@@ -7,12 +7,9 @@
 
   <body>
     <script>
-      document.title =
-        new URLSearchParams(window.location.search).get("title") ?? "";
-
-      document.body.innerHTML = decodeURIComponent(
-        window.location.hash.slice(1),
-      );
+      const params = new URLSearchParams(window.location.search);
+      document.title = params.get("title") ?? "Echo URL Data";
+      document.body.innerHTML = params.get("data") ?? "Echo URL Data";
     </script>
   </body>
 </html>
